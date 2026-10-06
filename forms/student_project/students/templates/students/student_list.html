@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Management</title>
+</head>
+
+<body>
+
+    <h1>Student Management</h1>
+
+    <!-- Add Student Form -->
+
+    <h2>Add Student</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Add Student
+        </button>
+
+    </form>
+
+    <hr>
+
+    <!-- Student List -->
+
+    <h2>Students</h2>
+
+    {% for student in students %}
+
+        <div>
+
+            <h3>{{ student.name }}</h3>
+
+            <p>Email: {{ student.email }}</p>
+
+            <p>Age: {{ student.age }}</p>
+
+            <p>Course: {{ student.course }}</p>
+
+            <p>Phone: {{ student.phone }}</p>
+
+            <p>Address: {{ student.address }}</p>
+
+            <a href="{% url 'admin_login' student.id %}">
+                Update
+            </a>
+
+        </div>
+
+        <hr>
+
+    {% empty %}
+
+        <p>No students found.</p>
+
+    {% endfor %}
+
+</body>
+
+</html>

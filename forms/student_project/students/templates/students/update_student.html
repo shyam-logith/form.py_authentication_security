@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Student</title>
+</head>
+
+<body>
+
+    <h1>Update Student</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Update Student
+        </button>
+
+    </form>
+
+
+    <hr>
+
+
+    <h2>Delete Student</h2>
+
+    <p>
+        If you want to remove this student, click below.
+    </p>
+
+    <a href="{% url 'delete_student' student.id %}">
+        Delete Student
+    </a>
+
+
+    <br><br>
+
+    <a href="{% url 'student_list' %}">
+        Back to Student List
+    </a>
+
+</body>
+
+</html>

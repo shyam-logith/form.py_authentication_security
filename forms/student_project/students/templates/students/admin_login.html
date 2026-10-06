@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Authentication</title>
+</head>
+
+<body>
+
+    <h2>Admin Authentication</h2>
+
+    <p>Enter your username and password to update this student.</p>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Username</label>
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+        >
+
+        <br><br>
+
+        <label>Password</label>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Continue to Update
+        </button>
+
+    </form>
+
+</body>
+
+</html>
